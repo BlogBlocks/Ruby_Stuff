@@ -1,0 +1,179 @@
+= ..pplloott
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  GGrruuffffLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts={}) { |plot| ... }
+
+------------------------------------------------------------------------------
+
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  NNyyaapplloottLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts) { |plot, diagram| ... }
+
+------------------------------------------------------------------------------
+
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  GGrruuffffLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts={}) { |plot| ... }
+
+------------------------------------------------------------------------------
+
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  NNyyaapplloottLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts={})
+
+------------------------------------------------------------------------------
+
+Plots a DataFrame with Nyaplot on IRuby using the given options. Yields the
+corresponding Nyaplot::Plot object and the Nyaplot::Diagram object to the
+block, if it is specified. See the nyaplot docs for info on how to further use
+these objects.
+
+Detailed instructions on use of the plotting API can be found in the notebooks
+whose links you can find in the README.
+
+== OOppttiioonnss
+
+* :type  - Type of plot. Can be :scatter, :bar, :histogram, :line or :box.
+* :x - Vector to be used for X co-ordinates.
+* :y - Vector to be used for Y co-ordinates.
+
+== UUssaaggee
+  # Simple bar chart
+  df = Daru::DataFrame.new({a:['A', 'B', 'C', 'D', 'E'], b:[10,20,30,40,50]})
+  df.plot type: :bar, x: :a, y: :b
+
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  GGrruuffffLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts={}) { |plot| ... }
+
+------------------------------------------------------------------------------
+
+
+(from gem daru-0.1.6)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  NNyyaapplloottLLiibbrraarryy
+------------------------------------------------------------------------------
+  plot(opts={}) { |plot, diagram| ... }
+
+------------------------------------------------------------------------------
+
+Plots a Vector with Nyaplot on IRuby using the given options. Yields the plot
+object (Nyaplot::Plot) and the diagram object (Nyaplot::Diagram) to the block,
+which can be used for setting various options as per the Nyaplot API.
+
+== OOppttiioonnss
+  type (:scatter, :bar, :histogram), title, x_label, y_label, color(true/false)
+
+== UUssaaggee
+  vector = Daru::Vector.new [10,20,30,40], [:one, :two, :three, :four]
+  vector.plot(type: :bar) do |plot|
+    plot.title "My first plot"
+    plot.width 1200
+  end
+
+
+(from gem gnuplotrb-0.3.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  AAnniimmaattiioonn
+------------------------------------------------------------------------------
+  plot(path = nil, **options)
+
+------------------------------------------------------------------------------
+
+This method creates a gif animation where frames are plots already contained
+by Animation object.
+
+Options passed in #plot have priority over those which were set before.
+
+Inner options of Plots have the highest priority (except :term and :output
+which are ignored).
+
+@param path [String] path to new gif file that will be created as a result
+@param options [Hash] see note about available options in top class
+documentation @return [nil] if path to output file given @return [String] gif
+file contents if no path to output file given
+
+
+(from gem gnuplotrb-0.3.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  DDaattaasseett
+------------------------------------------------------------------------------
+  plot(*args)
+
+------------------------------------------------------------------------------
+
+Create new Plot object with only one Dataset given - self. Calls #plot on
+created Plot. All arguments given to this #plot will be sent to Plot#plot
+instead. @param args sequence of arguments all of which will be passed to
+Plot#plot,
+  see docs there
+
+@return [Plot] new Plot object with only one Dataset - self @example
+  sin = Dataset.new('sin(x)')
+  sin.plot(term: [qt, size: [300, 300]])
+  #=> shows qt window 300x300 with sin(x)
+  sin.to_png('./plot.png')
+  #=> creates png file with sin(x) plotted
+
+
+(from gem gnuplotrb-0.3.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  MMuullttiipplloott
+------------------------------------------------------------------------------
+  plot(term = nil, multiplot_part: false, **options)
+
+------------------------------------------------------------------------------
+
+Output all the plots to term (if given) or to this Multiplot's own terminal.
+
+@param term [Terminal] Terminal to plot to @param multiplot_part [Boolean]
+placeholder, does not really needed and should not be used @param options
+[Hash] see options in top class docs.
+  Options passed here have priority over already set.
+
+@return [Multiplot] self
+
+
+(from gem gnuplotrb-0.3.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  PPlloott
+------------------------------------------------------------------------------
+  plot(term = nil, multiplot_part: false, **options)
+
+------------------------------------------------------------------------------
+
+Output plot to term (if given) or to this plot's own terminal.
+
+@param term [Terminal] Terminal object to plot to @param :multiplot_part
+[Boolean] true if this plot is part of a multiplot. For inner use! @param
+options [Hash] see options in Plot top level doc.
+  Options passed here have priority over already existing.
+
+@return [Plot] self
+
+
+(from gem gnuplotrb-0.3.4)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  PPlloottttaabbllee
+------------------------------------------------------------------------------
+  plot(*_)
+
+------------------------------------------------------------------------------
+
+@private You should implement #plot in classes that are Plottable
+
+
+(from gem numo-gnuplot-0.2.3)
+=== IImmpplleemmeennttaattiioonn  ffrroomm  GGnnuupplloott
+------------------------------------------------------------------------------
+  plot(*args)
+
+------------------------------------------------------------------------------
+
+draw 2D functions and data.
+
+
